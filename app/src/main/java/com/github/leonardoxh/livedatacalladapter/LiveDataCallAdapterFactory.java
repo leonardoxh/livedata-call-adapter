@@ -25,14 +25,14 @@ public class LiveDataCallAdapterFactory extends CallAdapter.Factory {
         }
         if (!(returnType instanceof ParameterizedType)) {
             throw new IllegalStateException("Response must be parametrized as " +
-                    "Response<LiveData> or Response<? extends LiveData>");
+                    "LiveData<Resource> or LiveData<? extends Resource>");
         }
 
         Type responseType = getParameterUpperBound(0, (ParameterizedType) returnType);
         if (getRawType(responseType) == Response.class) {
             if (!(responseType instanceof ParameterizedType)) {
                 throw new IllegalStateException("Response must be parametrized as " +
-                        "Response<LiveData> or Response<? extends LiveData>");
+                        "LiveData<Response<Resource>> or LiveData<Response<? extends Resource>>");
             }
 
             return new LiveDataResponseCallAdapter<>(responseType);

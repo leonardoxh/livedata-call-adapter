@@ -67,7 +67,7 @@ public class LiveDataCallAdapterFactoryTest {
             fail("Unespected callAdapter = " + callAdapter.getClass().getName());
         } catch (IllegalStateException e) {
             assertThat(e).hasMessageThat().isEqualTo("Response must be parametrized as " +
-                    "Response<LiveData> or Response<? extends LiveData>");
+                    "LiveData<Resource> or LiveData<? extends Resource>");
         }
     }
 
@@ -79,7 +79,7 @@ public class LiveDataCallAdapterFactoryTest {
             fail("Unespected callAdapter = " + callAdapter.getClass().getName());
         } catch (IllegalStateException e) {
             assertThat(e).hasMessageThat().isEqualTo("Response must be parametrized as " +
-                    "Response<LiveData> or Response<? extends LiveData>");
+                    "LiveData<Response<Resource>> or LiveData<Response<? extends Resource>>");
         }
     }
 }
