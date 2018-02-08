@@ -27,18 +27,18 @@ error callback to the `LiveData` object, so when you want verify what is happeni
 on your network call for example:
 
 ```java
-    retrofit.create(SuperService.class)
-            .getPimba()
-            .observe(this, new Observer<Resource<Pimba>>() {
-                @Override
-                public void onChange(@Nullable Resource<Pimba> resource) {
-                    if (resource.isSuccess()) {
-                        //doSuccessAction with resource.resource
-                    } else {
-                        //doErrorAction with resource.error
-                    }
+retrofit.create(SuperService.class)
+        .getPimba()
+        .observe(this, new Observer<Resource<Pimba>>() {
+            @Override
+            public void onChange(@Nullable Resource<Pimba> resource) {
+                if (resource.isSuccess()) {
+                    //doSuccessAction with resource.resource
+                } else {
+                    //doErrorAction with resource.error
                 }
-            })
+            }
+        })
 ```
 
 Download
