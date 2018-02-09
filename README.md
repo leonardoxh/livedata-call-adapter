@@ -54,6 +54,11 @@ Inspiration
 * [Kotlin courtines adapter](https://github.com/JakeWharton/retrofit2-kotlin-coroutines-adapter)
 * [Retrofit RXJava2 adapter](https://github.com/square/retrofit)
 
+Disclaimer
+---
+This library is not intended to be used in production yet, there is some limitations using this library with other converters like `moshi`
+the next versions should fix it
+
 License
 ---
 ```
