@@ -41,9 +41,13 @@ retrofit.create(SuperService.class)
         })
 ```
 
-Download
+Gradle dependencie
 ---
-Soon available at mavenCentral
+```groovy
+dependencies {
+    implementation "com.github.leonardoxh:retrofit2-livedata-adapter:1.0.0"
+}
+```
 
 Inspiration
 ---
