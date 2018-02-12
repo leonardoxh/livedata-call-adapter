@@ -1,3 +1,5 @@
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Retrofit2%20LiveData%20Adapter-green.svg?style=flat )]( https://android-arsenal.com/details/1/6743 )
+
 LiveData Call Adapter for Retrofit
 ---
 A Retrofit 2 `CallAdapter.Factory` for Android [LiveData](https://developer.android.com/topic/libraries/architecture/livedata.html)
