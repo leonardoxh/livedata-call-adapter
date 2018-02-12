@@ -23,7 +23,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 final class LiveDataTestUtil {
-
     static <T> T getLiveDataValue(final LiveData<T> liveData) throws InterruptedException {
         return getLiveDataValue(liveData, 1);
     }
@@ -49,5 +48,4 @@ final class LiveDataTestUtil {
         }
         return (T) resultHolder[0];
     }
-
 }
