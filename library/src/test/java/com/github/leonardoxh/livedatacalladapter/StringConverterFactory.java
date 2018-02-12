@@ -29,12 +29,7 @@ final class StringConverterFactory extends Converter.Factory {
     @Override
     public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations,
                                                             Retrofit retrofit) {
-        return new Converter<ResponseBody, String>() {
-            @Override
-            public String convert(ResponseBody value) throws IOException {
-                return value.string();
-            }
-        };
+        return new StringResponseBodyConverter();
     }
 
     @Override
@@ -46,5 +41,12 @@ final class StringConverterFactory extends Converter.Factory {
                 return RequestBody.create(MediaType.parse("text/plain"), value);
             }
         };
+    }
+
+    static class StringResponseBodyConverter implements Converter<ResponseBody, String> {
+        @Override
+        public String convert(ResponseBody value) throws IOException {
+            return value.string();
+        }
     }
 }

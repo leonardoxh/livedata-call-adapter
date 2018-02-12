@@ -49,7 +49,6 @@ public class LiveDataResponseBodyConverterFactory extends Converter.Factory {
         if (type instanceof ParameterizedType) {
             ParameterizedType parameterizedType = (ParameterizedType) type;
             if (parameterizedType.getRawType() == Response.class) {
-                checkParametrizedType(parameterizedType);
                 Type subType = parameterizedType.getActualTypeArguments()[0];
                 if (subType instanceof ParameterizedType) {
                     parameterizedType = (ParameterizedType) parameterizedType.getActualTypeArguments()[0];
@@ -57,19 +56,10 @@ public class LiveDataResponseBodyConverterFactory extends Converter.Factory {
             }
 
             if (parameterizedType.getRawType() == Resource.class) {
-                checkParametrizedType(parameterizedType);
                 Type realType = parameterizedType.getActualTypeArguments()[0];
                 return originalConverterFactory.responseBodyConverter(realType, annotations, retrofit);
             }
         }
-
         return originalConverterFactory.responseBodyConverter(type, annotations, retrofit);
-    }
-
-    private static void checkParametrizedType(ParameterizedType parameterizedType) {
-        if (parameterizedType.getActualTypeArguments().length == 0) {
-            throw new IllegalStateException("Resource should have a type Resource<T> or " +
-                    "Resource<? extends T>");
-        }
     }
 }
