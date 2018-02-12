@@ -25,7 +25,7 @@ import retrofit2.CallAdapter;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class LiveDataCallAdapterFactory extends CallAdapter.Factory {
+public final class LiveDataCallAdapterFactory extends CallAdapter.Factory {
     private LiveDataCallAdapterFactory() {
     }
 

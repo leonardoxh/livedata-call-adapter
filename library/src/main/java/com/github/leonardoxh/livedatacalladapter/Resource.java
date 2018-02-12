@@ -17,7 +17,7 @@ package com.github.leonardoxh.livedatacalladapter;
 
 import android.support.annotation.Nullable;
 
-public final class Resource<T> {
+public class Resource<T> {
     private T resource;
     private Throwable error;
 

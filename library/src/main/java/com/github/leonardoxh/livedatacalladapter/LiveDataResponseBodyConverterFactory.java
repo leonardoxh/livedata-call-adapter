@@ -31,7 +31,7 @@ import retrofit2.Retrofit;
  * as we are using the {@link Resource} as an response wrapper we should
  * tell to the original converter the correct type
  */
-public class LiveDataResponseBodyConverterFactory extends Converter.Factory {
+public final class LiveDataResponseBodyConverterFactory extends Converter.Factory {
     private final Converter.Factory originalConverterFactory;
 
     private LiveDataResponseBodyConverterFactory(Converter.Factory originalConverterFactory) {

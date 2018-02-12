@@ -26,7 +26,7 @@ import retrofit2.Callback;
 import retrofit2.HttpException;
 import retrofit2.Response;
 
-public class LiveDataBodyCallAdapter<R> implements CallAdapter<R, LiveData<Resource<R>>> {
+public final class LiveDataBodyCallAdapter<R> implements CallAdapter<R, LiveData<Resource<R>>> {
     private final Type responseType;
 
     LiveDataBodyCallAdapter(Type type) {
