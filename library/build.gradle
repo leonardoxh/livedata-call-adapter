@@ -2,18 +2,10 @@ apply plugin: 'com.android.library'
 apply from: file('../gradle/gradle-mvn-push.gradle')
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+        targetSdkVersion 27
     }
 }
 
