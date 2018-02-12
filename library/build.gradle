@@ -2,10 +2,10 @@ apply plugin: 'com.android.library'
 apply from: file('../gradle/gradle-mvn-push.gradle')
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 26
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 27
+        targetSdkVersion 26
     }
 }
 
