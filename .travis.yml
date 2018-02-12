@@ -3,7 +3,7 @@ jdk: oraclejdk8
 sudo: false
 android:
   components:
-    - android-27
-    - build-tools-27.0.3
+    - android-26
+    - build-tools-26.0.2
 script:
   - ./gradlew test
