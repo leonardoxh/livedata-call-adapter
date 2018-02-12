@@ -23,6 +23,7 @@ import java.lang.reflect.Type;
 
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 
 /**
@@ -47,16 +48,28 @@ public class LiveDataResponseBodyConverterFactory extends Converter.Factory {
                                                             Retrofit retrofit) {
         if (type instanceof ParameterizedType) {
             ParameterizedType parameterizedType = (ParameterizedType) type;
-            if (parameterizedType.getRawType() == Resource.class) {
-                if (parameterizedType.getActualTypeArguments().length == 0) {
-                    throw new IllegalStateException("Resource should have a type Resource<T> or " +
-                            "Resource<? extends T>");
+            if (parameterizedType.getRawType() == Response.class) {
+                checkParametrizedType(parameterizedType);
+                Type subType = parameterizedType.getActualTypeArguments()[0];
+                if (subType instanceof ParameterizedType) {
+                    parameterizedType = (ParameterizedType) parameterizedType.getActualTypeArguments()[0];
                 }
+            }
+
+            if (parameterizedType.getRawType() == Resource.class) {
+                checkParametrizedType(parameterizedType);
                 Type realType = parameterizedType.getActualTypeArguments()[0];
                 return originalConverterFactory.responseBodyConverter(realType, annotations, retrofit);
             }
         }
 
         return originalConverterFactory.responseBodyConverter(type, annotations, retrofit);
+    }
+
+    private static void checkParametrizedType(ParameterizedType parameterizedType) {
+        if (parameterizedType.getActualTypeArguments().length == 0) {
+            throw new IllegalStateException("Resource should have a type Resource<T> or " +
+                    "Resource<? extends T>");
+        }
     }
 }
