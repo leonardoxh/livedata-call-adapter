@@ -10,10 +10,14 @@ Add `LiveDataCallAdapterFactory` as a `Call` adapter when building your `Retrofi
 Retrofit retrofit = new Retrofit.Builder()
         .baseUrl("https://example.com")
         .addCallAdapterFactory(LiveDataCallAdapterFactory.create())
+        .addConverterFactory(LiveDataResponseBodyConverterFactory.wrap(new AnyConverterFactory()))
         .build();
 ```
 
-Your service methods can now use `LiveData` as their return type.
+Your service methods can now use `LiveData` as their return type, but, note that we also have
+a `LiveDataResponseBodyConverterFactory` this wrapper is necessary when you have a converter
+that touch on the return type like `moshi` or `gson`, to bypass the `Resource<T>` class
+and give to the `Converter.Factory` the correct type to serialize.
 
 ```java
 public interface SuperService {
@@ -45,7 +49,7 @@ Gradle dependencie
 ---
 ```groovy
 dependencies {
-    implementation "com.github.leonardoxh:retrofit2-livedata-adapter:1.0.0"
+    implementation "com.github.leonardoxh:retrofit2-livedata-adapter:1.0.1"
 }
 ```
 
@@ -53,11 +57,6 @@ Inspiration
 ---
 * [Kotlin courtines adapter](https://github.com/JakeWharton/retrofit2-kotlin-coroutines-adapter)
 * [Retrofit RXJava2 adapter](https://github.com/square/retrofit)
-
-Disclaimer
----
-This library is not intended to be used in production yet, there is some limitations using this library with other converters like `moshi`
-the next versions should fix it
 
 License
 ---
