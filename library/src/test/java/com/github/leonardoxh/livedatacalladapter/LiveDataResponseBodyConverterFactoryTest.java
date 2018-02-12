@@ -18,6 +18,7 @@ package com.github.leonardoxh.livedatacalladapter;
 import com.google.common.reflect.TypeToken;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 import java.lang.annotation.Annotation;
@@ -34,7 +35,7 @@ import static com.google.common.truth.Truth.assertThat;
 public class LiveDataResponseBodyConverterFactoryTest {
     private static final Annotation[] NO_ANNOTATIONS = new Annotation[0];
 
-    private final MockWebServer server = new MockWebServer();
+    @Rule public final MockWebServer server = new MockWebServer();
 
     private final Converter.Factory factory =
             LiveDataResponseBodyConverterFactory.wrap(new StringConverterFactory());

@@ -20,6 +20,7 @@ import android.arch.lifecycle.LiveData;
 import com.google.common.reflect.TypeToken;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 
 import java.lang.annotation.Annotation;
@@ -36,7 +37,7 @@ import static org.junit.Assert.fail;
 public class LiveDataCallAdapterFactoryTest {
     private static final Annotation[] NO_ANNOTATIONS = new Annotation[0];
 
-    private final MockWebServer server = new MockWebServer();
+    @Rule public final MockWebServer server = new MockWebServer();
     private final CallAdapter.Factory factory = LiveDataCallAdapterFactory.create();
     private Retrofit retrofit;
 

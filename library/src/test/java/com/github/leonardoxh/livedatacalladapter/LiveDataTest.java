@@ -35,8 +35,8 @@ import static com.google.common.truth.Truth.assertThat;
 import static okhttp3.mockwebserver.SocketPolicy.DISCONNECT_AFTER_REQUEST;
 
 public class LiveDataTest {
-    @Rule public InstantTaskExecutorRule instantTaskExecutorRule = new InstantTaskExecutorRule();
-    private MockWebServer server = new MockWebServer();
+    @Rule public final InstantTaskExecutorRule instantTaskExecutorRule = new InstantTaskExecutorRule();
+    @Rule public final MockWebServer server = new MockWebServer();
     private Service service;
 
     @Before
