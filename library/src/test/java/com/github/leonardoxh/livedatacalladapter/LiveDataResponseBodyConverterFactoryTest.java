@@ -46,8 +46,8 @@ public class LiveDataResponseBodyConverterFactoryTest {
         retrofit = new Retrofit.Builder()
                 .baseUrl(server.url("/"))
                 .addConverterFactory(factory)
-                .addConverterFactory(new StringConverterFactory())
                 .addCallAdapterFactory(LiveDataCallAdapterFactory.create())
+                .addConverterFactory(new StringConverterFactory())
                 .build();
     }
 
