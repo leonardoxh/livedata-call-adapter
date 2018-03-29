@@ -15,11 +15,11 @@
  */
 package com.github.leonardoxh.livedatacalladapter;
 
-import android.support.annotation.Nullable;
-
 import java.lang.annotation.Annotation;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+
+import javax.annotation.Nullable;
 
 import okhttp3.ResponseBody;
 import retrofit2.Converter;

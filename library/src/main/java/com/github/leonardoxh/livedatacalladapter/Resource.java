@@ -15,7 +15,7 @@
  */
 package com.github.leonardoxh.livedatacalladapter;
 
-import android.support.annotation.Nullable;
+import javax.annotation.Nullable;
 
 public class Resource<T> {
     private T resource;
@@ -38,7 +38,7 @@ public class Resource<T> {
         return error;
     }
 
-    static <T> Resource<T> success(T body) {
+    static <T> Resource<T> success(@Nullable T body) {
         final Resource<T> resource = new Resource<>();
         resource.resource = body;
         return resource;
