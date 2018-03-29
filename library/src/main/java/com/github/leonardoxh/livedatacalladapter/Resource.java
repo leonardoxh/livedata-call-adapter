@@ -44,7 +44,7 @@ public class Resource<T> {
         return resource;
     }
 
-    static <T> Resource error(Throwable error) {
+    static <T> Resource error(@Nullable Throwable error) {
         final Resource<T> resource = new Resource<>();
         resource.error = error;
         return resource;
