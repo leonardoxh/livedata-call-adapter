@@ -47,7 +47,6 @@ public class LiveDataCallAdapterFactoryTest {
                 .baseUrl(server.url("/"))
                 .addCallAdapterFactory(factory)
                 .addConverterFactory(LiveDataResponseBodyConverterFactory.create())
-                .addConverterFactory(new StringConverterFactory())
                 .build();
     }
 
