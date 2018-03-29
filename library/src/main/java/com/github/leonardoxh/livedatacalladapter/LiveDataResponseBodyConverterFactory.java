@@ -39,6 +39,13 @@ public final class LiveDataResponseBodyConverterFactory extends Converter.Factor
         return new LiveDataResponseBodyConverterFactory();
     }
 
+    /**
+     * @deprecated use {@link #create()} instead
+     */
+    public static LiveDataResponseBodyConverterFactory wrap(Converter.Factory factory) {
+        return create();
+    }
+
     @Nullable
     @Override
     public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations,

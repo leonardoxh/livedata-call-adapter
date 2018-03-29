@@ -13,7 +13,8 @@ Add `LiveDataCallAdapterFactory` as a `Call` adapter when building your `Retrofi
 Retrofit retrofit = new Retrofit.Builder()
         .baseUrl("https://example.com")
         .addCallAdapterFactory(LiveDataCallAdapterFactory.create())
-        .addConverterFactory(LiveDataResponseBodyConverterFactory.wrap(new AnyConverterFactory()))
+        .addConverterFactory(LiveDataResponseBodyConverterFactory.create())
+        .addConverterFactory(YourConverterFactory.create())
         .build();
 ```
 
@@ -52,7 +53,7 @@ Gradle dependencie
 ---
 ```groovy
 dependencies {
-    implementation "com.github.leonardoxh:retrofit2-livedata-adapter:1.0.2"
+    implementation "com.github.leonardoxh:retrofit2-livedata-adapter:1.1.0"
 }
 ```
 
@@ -60,6 +61,7 @@ Inspiration
 ---
 * [Kotlin courtines adapter](https://github.com/JakeWharton/retrofit2-kotlin-coroutines-adapter)
 * [Retrofit RXJava2 adapter](https://github.com/square/retrofit)
+* [Retrofit Java8 Optional adapter](https://github.com/square/retrofit)
 
 License
 ---

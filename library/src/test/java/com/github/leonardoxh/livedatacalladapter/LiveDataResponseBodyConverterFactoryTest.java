@@ -38,7 +38,7 @@ public class LiveDataResponseBodyConverterFactoryTest {
     @Rule public final MockWebServer server = new MockWebServer();
 
     private final Converter.Factory factory =
-            LiveDataResponseBodyConverterFactory.wrap(new StringConverterFactory());
+            LiveDataResponseBodyConverterFactory.create();
     private Retrofit retrofit;
 
     @Before
@@ -46,6 +46,7 @@ public class LiveDataResponseBodyConverterFactoryTest {
         retrofit = new Retrofit.Builder()
                 .baseUrl(server.url("/"))
                 .addConverterFactory(factory)
+                .addConverterFactory(new StringConverterFactory())
                 .addCallAdapterFactory(LiveDataCallAdapterFactory.create())
                 .build();
     }

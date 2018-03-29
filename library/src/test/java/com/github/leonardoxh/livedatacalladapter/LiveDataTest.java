@@ -43,7 +43,8 @@ public class LiveDataTest {
     public void setUp() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(server.url("/"))
-                .addConverterFactory(LiveDataResponseBodyConverterFactory.wrap(new StringConverterFactory()))
+                .addConverterFactory(LiveDataResponseBodyConverterFactory.create())
+                .addConverterFactory(new StringConverterFactory())
                 .addCallAdapterFactory(LiveDataCallAdapterFactory.create())
                 .build();
         service = retrofit.create(Service.class);
