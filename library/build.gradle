@@ -10,11 +10,11 @@ android {
 }
 
 dependencies {
-    api 'com.squareup.retrofit2:retrofit:2.3.0'
-    api 'android.arch.lifecycle:livedata:1.1.0'
+    api 'com.squareup.retrofit2:retrofit:2.4.0'
+    api 'android.arch.lifecycle:livedata:1.1.1'
 
     testImplementation 'junit:junit:4.12'
-    testImplementation 'com.squareup.okhttp3:mockwebserver:3.9.1'
+    testImplementation 'com.squareup.okhttp3:mockwebserver:3.10.0'
     testImplementation 'com.google.truth:truth:0.39'
-    testImplementation 'android.arch.core:core-testing:1.1.0'
+    testImplementation 'android.arch.core:core-testing:1.1.1'
 }
