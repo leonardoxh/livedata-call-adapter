@@ -49,8 +49,8 @@ retrofit.create(SuperService.class)
         })
 ```
 
-Gradle dependencie
----
+Gradle dependency
+-----------------
 ```groovy
 dependencies {
     implementation "com.github.leonardoxh:retrofit2-livedata-adapter:1.1.0"
