@@ -32,14 +32,11 @@ import retrofit2.Retrofit;
  * tell to the original converter the correct type
  */
 public final class LiveDataResponseBodyConverterFactory extends Converter.Factory {
-    private final Converter.Factory originalConverterFactory;
-
-    private LiveDataResponseBodyConverterFactory(Converter.Factory originalConverterFactory) {
-        this.originalConverterFactory = originalConverterFactory;
+    private LiveDataResponseBodyConverterFactory() {
     }
 
-    public static LiveDataResponseBodyConverterFactory wrap(Converter.Factory factory) {
-        return new LiveDataResponseBodyConverterFactory(factory);
+    public static LiveDataResponseBodyConverterFactory create() {
+        return new LiveDataResponseBodyConverterFactory();
     }
 
     @Nullable
@@ -57,9 +54,9 @@ public final class LiveDataResponseBodyConverterFactory extends Converter.Factor
 
             if (parameterizedType.getRawType() == Resource.class) {
                 Type realType = parameterizedType.getActualTypeArguments()[0];
-                return originalConverterFactory.responseBodyConverter(realType, annotations, retrofit);
+                return retrofit.nextResponseBodyConverter(this, realType, annotations);
             }
         }
-        return originalConverterFactory.responseBodyConverter(type, annotations, retrofit);
+        return retrofit.nextResponseBodyConverter(this, type, annotations);
     }
 }
