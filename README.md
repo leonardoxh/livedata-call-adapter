@@ -39,7 +39,7 @@ retrofit.create(SuperService.class)
         .getPimba()
         .observe(this, new Observer<Resource<Pimba>>() {
             @Override
-            public void onChange(@Nullable Resource<Pimba> resource) {
+            public void onChange(Resource<Pimba> resource) {
                 if (resource.isSuccess()) {
                     //doSuccessAction with resource.resource
                 } else {
@@ -53,7 +53,7 @@ Gradle dependency
 -----------------
 ```groovy
 dependencies {
-    implementation "com.github.leonardoxh:retrofit2-livedata-adapter:1.1.0"
+    implementation "com.github.leonardoxh:retrofit2-livedata-adapter:1.1.1"
 }
 ```
 
