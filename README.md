@@ -53,7 +53,7 @@ Gradle dependency
 -----------------
 ```groovy
 dependencies {
-    implementation "com.github.leonardoxh:retrofit2-livedata-adapter:1.1.1"
+    implementation "com.github.leonardoxh:retrofit2-livedata-adapter:1.1.2"
 }
 ```
 
