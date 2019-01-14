@@ -59,7 +59,7 @@ dependencies {
 
 Inspiration
 ---
-* [Kotlin courtines adapter](https://github.com/JakeWharton/retrofit2-kotlin-coroutines-adapter)
+* [Kotlin coroutines adapter](https://github.com/JakeWharton/retrofit2-kotlin-coroutines-adapter)
 * [Retrofit RXJava2 adapter](https://github.com/square/retrofit)
 * [Retrofit Java8 Optional adapter](https://github.com/square/retrofit)
 
